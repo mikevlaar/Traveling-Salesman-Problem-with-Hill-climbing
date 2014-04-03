@@ -8,43 +8,27 @@ namespace TSP_with_HillClimbing
 {
     [Serializable]
     public class City {
-        int x;
-        int y;
-    
-        // Constructs a randomly placed city
-        public City(){
-            Random random = new Random();
-            this.x = (int)(random.NextDouble()*200);
-            this.y = (int)(random.NextDouble()*200);
-        }
-    
-        // Constructs a city at chosen x, y location
+        private int x;
+        private int y;
+
+        /* Constructor that creates a city at the chosen x, y location.
+         * @param x :The x location of the city.
+         * @param y :The y location of the city.
+         */
         public City(int x, int y){
             this.x = x;
             this.y = y;
         }
     
-        // Gets city's x coordinate
-        public int getX(){
-            return this.x;
-        }
-    
-        // Gets city's y coordinate
-        public int getY(){
-            return this.y;
-        }
-    
-        // Gets the distance to given city
+        /* This method Gets the distance to the given city.
+         * @param city :The city to compare with.
+         */
         public double distanceTo(City city){
-            int xDistance = Math.Abs(getX() - city.getX());
-            int yDistance = Math.Abs(getY() - city.getY());
-            double distance = Math.Sqrt( (xDistance*xDistance) + (yDistance*yDistance) );
+            int xDistance = Math.Abs(x - city.x);
+            int yDistance = Math.Abs(y - city.y);
+            double distance = Math.Sqrt((xDistance * xDistance) + (yDistance * yDistance));
         
             return distance;
-        }
-
-        public String toString(){
-            return getX()+", "+getY();
         }
     }
 }

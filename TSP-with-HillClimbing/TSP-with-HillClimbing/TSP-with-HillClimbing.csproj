@@ -43,10 +43,11 @@
   <ItemGroup>
     <Compile Include="City.cs" />
     <Compile Include="GenericCopier.cs" />
+    <Compile Include="HillClimbing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TourManager.cs" />
-    <Compile Include="Tour.cs" />
+    <Compile Include="RouteManager.cs" />
+    <Compile Include="Route.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -79,14 +79,11 @@ namespace TSP_with_HillClimbing
                 double currentDistance = currentSolution.getDistance();
                 double neighbourDistance = newSolution.getDistance();
 
-                if (currentDistance >= neighbourDistance)
+                if (currentDistance > neighbourDistance)
                 {
                     currentSolution = new Route(newSolution.getRoute());
-                }
-
-                if (currentSolution.getDistance() < best.getDistance())
-                {
                     best = new Route(currentSolution.getRoute());
+
                     Console.WriteLine("Route Distance: " + best.getDistance());
                     notOptimal = 0;
                 }

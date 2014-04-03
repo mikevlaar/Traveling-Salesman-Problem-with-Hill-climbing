@@ -83,11 +83,11 @@ namespace TSP_with_HillClimbing
                 newSolution.insertCity(tourPos1, citySwap2);
 
                 // Get distance of solutions
-                double currentEnergy = currentSolution.getDistance();
-                double neighbourEnergy = newSolution.getDistance();
+                double currentDistance = currentSolution.getDistance();
+                double neighbourDistance = newSolution.getDistance();
 
                 // Decide if we should accept the neighbour
-                if (currentEnergy >= neighbourEnergy)
+                if (currentDistance >= neighbourDistance)
                 {
                     currentSolution = new Route(newSolution.getRoute());
                 }

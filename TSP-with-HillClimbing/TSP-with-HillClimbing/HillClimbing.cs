@@ -97,6 +97,7 @@ namespace TSP_with_HillClimbing
                 {
                     best = new Route(currentSolution.getRoute());
                     Console.WriteLine("Route Distance: " + best.getDistance());
+                    notOptimal = 0;
                 }
                 else
                 {

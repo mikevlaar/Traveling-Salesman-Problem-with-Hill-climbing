@@ -59,7 +59,7 @@ namespace TSP_with_HillClimbing
             currentSolution.generateRandomRoute();
             Random random = new Random();
 
-            Console.WriteLine("Initial solution distance: " + currentSolution.getDistance());
+            Console.WriteLine("Route Distance: " + currentSolution.getDistance());
 
             // Set as current best
             Route best = new Route(currentSolution.getRoute());
@@ -96,7 +96,7 @@ namespace TSP_with_HillClimbing
                 if (currentSolution.getDistance() < best.getDistance())
                 {
                     best = new Route(currentSolution.getRoute());
-                    Console.WriteLine("Final solution distance: " + best.getDistance());
+                    Console.WriteLine("Route Distance: " + best.getDistance());
                 }
                 else
                 {

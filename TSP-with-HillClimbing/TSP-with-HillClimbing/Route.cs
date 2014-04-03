@@ -43,12 +43,10 @@ namespace TSP_with_HillClimbing
          */
         public void generateRandomRoute() 
         {
-            // Loop through all our destination cities and add them to our tour
             for (int cityIndex = 0; cityIndex < RouteManager.numberOfCities(); cityIndex++) 
             {
               insertCity(cityIndex, RouteManager.getCity(cityIndex));
             }
-            // Randomly reorder the tour
             randomizeRoute(route);
         }
 
@@ -68,7 +66,6 @@ namespace TSP_with_HillClimbing
         public void insertCity(int routePosition, City city) 
         {
             route[routePosition] = city;
-            // If the tours been altered we need to reset the fitness and distance
             distance = 0;
         }
 
@@ -80,15 +77,12 @@ namespace TSP_with_HillClimbing
             if (distance == 0) 
             {
                 double routeDistance = 0;
-                // Loop through our tour's cities
+
                 for (int cityIndex=0; cityIndex < routeSize(); cityIndex++) 
                 {
-                    // Get city we're traveling from
                     City fromCity = getCity(cityIndex);
-                    // City we're traveling to
                     City destinationCity;
-                    // Check we're not on our tour's last city, if we are set our 
-                    // tour's final destination city to our starting city
+
                     if(cityIndex+1 < routeSize())
                     {
                         destinationCity = getCity(cityIndex+1);
@@ -97,7 +91,6 @@ namespace TSP_with_HillClimbing
                     {
                         destinationCity = getCity(0);
                     }
-                    // Get the distance between the two cities
                     routeDistance += fromCity.distanceTo(destinationCity);
                 }
                 distance = routeDistance;

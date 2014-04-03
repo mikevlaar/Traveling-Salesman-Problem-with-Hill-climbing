@@ -54,45 +54,36 @@ namespace TSP_with_HillClimbing
 
         public void search()
         {
-            // Initialize intial solution
             Route currentSolution = new Route();
             currentSolution.generateRandomRoute();
             Random random = new Random();
 
             Console.WriteLine("Route Distance: " + currentSolution.getDistance());
 
-            // Set as current best
             Route best = new Route(currentSolution.getRoute());
             int notOptimal = 0;
-            // Loop until system has cooled
+
             while (notOptimal < 120)
             {
-                // Create new neighbour tour
                 Route newSolution = new Route(currentSolution.getRoute());
 
-                // Get a random positions in the tour
                 int tourPos1 = (int)(newSolution.routeSize() * random.NextDouble());
                 int tourPos2 = (int)(newSolution.routeSize() * random.NextDouble());
 
-                // Get the cities at selected positions in the tour
                 City citySwap1 = newSolution.getCity(tourPos1);
                 City citySwap2 = newSolution.getCity(tourPos2);
 
-                // Swap them
                 newSolution.insertCity(tourPos2, citySwap1);
                 newSolution.insertCity(tourPos1, citySwap2);
 
-                // Get distance of solutions
                 double currentDistance = currentSolution.getDistance();
                 double neighbourDistance = newSolution.getDistance();
 
-                // Decide if we should accept the neighbour
                 if (currentDistance >= neighbourDistance)
                 {
                     currentSolution = new Route(newSolution.getRoute());
                 }
 
-                // Keep track of the best solution found
                 if (currentSolution.getDistance() < best.getDistance())
                 {
                     best = new Route(currentSolution.getRoute());
